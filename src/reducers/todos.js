@@ -1,12 +1,10 @@
 
-let nextId = 0;
-
 const todos = (state = [], action) => {
     switch (action.type) {
         case 'ADD_TODO':
             return [
                 ...state, {
-                    id: nextId++,
+                    id: action.id,
                     text: action.text,
                     completed: false,
                 }
