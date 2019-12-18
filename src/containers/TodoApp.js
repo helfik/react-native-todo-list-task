@@ -14,15 +14,19 @@ class TodoApp extends React.Component {
     }
 
     addTodo = (text) => {
-        if(this.props.text !== '') {
-            this.props.addToDo(text);
-            this.setState({text: ''});
-        }
+        this.props.addToDo(text);
+        this.setState({text: ''});
     };
 
     toggleTodo = (id) => {
         this.props.toggleToDo(id);
 
+    };
+
+    setToDoText = () => {
+        if(this.state.text !== '') {
+            this.addTodo(this.state.text)
+        }
     };
 
     render() {
@@ -35,7 +39,7 @@ class TodoApp extends React.Component {
                                        onChangeText={(text)=> this.setState({text})}/>
                         </View>
                         <View flexDirection="column" flex={1}>
-                            <TouchableOpacity onPress={()=>this.addTodo(this.state.text)}>
+                            <TouchableOpacity onPress={()=>this.setToDoText()}>
                                 <Image source={require('../img/plus-icon.png')} style={styles.plusIcon} />
                             </TouchableOpacity>
                         </View>
