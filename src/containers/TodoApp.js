@@ -27,6 +27,7 @@ class TodoApp extends React.Component {
         if(this.state.text !== '') {
             this.addTodo(this.state.text)
         }
+
     };
 
     render() {
